@@ -1,0 +1,49 @@
+<UserControl
+	x:Class="Slobby_Xploits__WPF.Assets.scriptItem" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Slobby_Xploits__WPF.Assets"
+	ScrollViewer.VerticalScrollBarVisibility="Disabled">
+	<Grid
+		Background="#FF282828">
+		<Button
+			Name="executeBtn"
+			Content=""
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			FontFamily="{DynamicResource Codicon}"
+			Height="15"
+			Width="15"
+			FontSize="15"
+			Margin="0,0,21,3"
+			Padding="0,0,0,0"
+			BorderBrush="{x:Null}" />
+		<Button
+			Name="copyBtn"
+			Content=""
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			FontFamily="{DynamicResource Codicon}"
+			Height="15"
+			Width="15"
+			FontSize="15"
+			Margin="0,0,3,3"
+			Padding="0,0,0,0"
+			BorderBrush="{x:Null}" />
+		<Image
+			Name="scriptImage"
+			Stretch="Fill"
+			Margin="0,0,0,21" />
+		<Label
+			Name="scriptName"
+			Content="Script name"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Bottom"
+			FontFamily="{DynamicResource Roboto}"
+			FontSize="12"
+			Foreground="#FFFFFFFF"
+			Margin="3,0,0,3"
+			Padding="0,0,0,0"
+			Height="15"
+			Width="86"
+			VerticalContentAlignment="Bottom"
+			Background="{x:Null}" />
+	</Grid>
+</UserControl>

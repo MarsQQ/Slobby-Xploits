@@ -1,0 +1,921 @@
+<Window
+	x:Class="Slobby_Xploits__WPF_.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Slobby_Xploits__WPF_" xmlns:Assets="clr-namespace:Slobby_Xploits__WPF_.Assets" xmlns:assets="clr-namespace:Slobby_Xploits__WPF.Assets"
+	Title="Slobby Xploits"
+	Background="#00FFFFFF"
+	AllowsTransparency="True"
+	Height="390"
+	Width="750"
+	WindowStyle="None"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterScreen"
+	MouseDown="Window_MouseDown"
+	Loaded="Window_Loaded"
+	Closed="Window_Closed">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Storyboard
+				x:Key="SettingsOpenStoryboard">
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="panel">
+					<DiscreteObjectKeyFrame
+						KeyTime="0"
+						Value="{x:Static Visibility.Visible}" />
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Opacity)"
+					Storyboard.TargetName="panel">
+					<EasingDoubleKeyFrame
+						KeyTime="0"
+						Value="0" />
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+					Storyboard.TargetName="SettingsPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+					Storyboard.TargetName="SettingsPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)"
+					Storyboard.TargetName="Main">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.2"
+						Value="5">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="SettingsPanelIn">
+					<DiscreteObjectKeyFrame
+						KeyTime="0"
+						Value="{x:Static Visibility.Visible}" />
+					<DiscreteObjectKeyFrame
+						KeyTime="0:0:0.5"
+						Value="{x:Static Visibility.Visible}" />
+				</ObjectAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard
+				x:Key="ApiSettingsOpenStoryboard">
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="panel">
+					<DiscreteObjectKeyFrame
+						KeyTime="0"
+						Value="{x:Static Visibility.Visible}" />
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Opacity)"
+					Storyboard.TargetName="panel">
+					<EasingDoubleKeyFrame
+						KeyTime="0"
+						Value="0" />
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+					Storyboard.TargetName="ApiSettingsPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+					Storyboard.TargetName="ApiSettingsPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)"
+					Storyboard.TargetName="Main">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.2"
+						Value="5">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="ApiSettingsPanelIn">
+					<DiscreteObjectKeyFrame
+						KeyTime="0"
+						Value="{x:Static Visibility.Visible}" />
+					<DiscreteObjectKeyFrame
+						KeyTime="0:0:0.5"
+						Value="{x:Static Visibility.Visible}" />
+				</ObjectAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard
+				x:Key="ScriptHubOpenStoryboard">
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="panel">
+					<DiscreteObjectKeyFrame
+						KeyTime="0"
+						Value="{x:Static Visibility.Visible}" />
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Opacity)"
+					Storyboard.TargetName="panel">
+					<EasingDoubleKeyFrame
+						KeyTime="0"
+						Value="0" />
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+					Storyboard.TargetName="ScriptHubPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+					Storyboard.TargetName="ScriptHubPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="1">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)"
+					Storyboard.TargetName="Main">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.2"
+						Value="5">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="ScriptHubPanelIn">
+					<DiscreteObjectKeyFrame
+						KeyTime="0"
+						Value="{x:Static Visibility.Visible}" />
+					<DiscreteObjectKeyFrame
+						KeyTime="0:0:0.5">
+						<ObjectKeyFrame.Value>
+							<Visibility>Visible</Visibility>
+						</ObjectKeyFrame.Value>
+					</DiscreteObjectKeyFrame>
+				</ObjectAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard
+				x:Key="PanelClosedStoryboard">
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)"
+					Storyboard.TargetName="Main">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.2">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Opacity)"
+					Storyboard.TargetName="panel">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="0">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="panel">
+					<DiscreteObjectKeyFrame
+						KeyTime="0:0:0.5"
+						Value="{x:Static Visibility.Collapsed}" />
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+					Storyboard.TargetName="SettingsPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="0.5">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+					Storyboard.TargetName="SettingsPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="0.35">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="SettingsPanelIn">
+					<DiscreteObjectKeyFrame
+						KeyTime="0:0:0.5"
+						Value="{x:Static Visibility.Collapsed}" />
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+					Storyboard.TargetName="ApiSettingsPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="0.5">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+					Storyboard.TargetName="ApiSettingsPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="0.35">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="ApiSettingsPanelIn">
+					<DiscreteObjectKeyFrame
+						KeyTime="0:0:0.5"
+						Value="{x:Static Visibility.Collapsed}" />
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+					Storyboard.TargetName="ScriptHubPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="0.5">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+					Storyboard.TargetName="ScriptHubPanelIn">
+					<EasingDoubleKeyFrame
+						KeyTime="0:0:0.5"
+						Value="0.35">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CubicEase
+								EasingMode="EaseInOut" />
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames
+					Storyboard.TargetProperty="(UIElement.Visibility)"
+					Storyboard.TargetName="ScriptHubPanelIn">
+					<DiscreteObjectKeyFrame
+						KeyTime="0:0:0.5"
+						Value="{x:Static Visibility.Collapsed}" />
+				</ObjectAnimationUsingKeyFrames>
+			</Storyboard>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Border
+		Background="#FF3C3C3C"
+		BorderBrush="#FF000000"
+		BorderThickness="2"
+		CornerRadius="5">
+		<Grid
+			Name="GodGrid">
+			<assets:newUpdate
+				x:Name="NewUpdate"
+				Margin="0,35,0,0"
+				Visibility="Collapsed" />
+			<Border
+				Background="#FF282828"
+				CornerRadius="5,5,0,0"
+				VerticalAlignment="Top">
+				<Grid
+					Name="ToolBar"
+					Height="35">
+					<Button
+						Name="logo"
+						HorizontalAlignment="Left"
+						Cursor="Hand"
+						Margin="10,0,0,0"
+						Width="35"
+						Click="logo_Click">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type Button}">
+								<Setter
+									Property="Control.BorderBrush"
+									Value="{x:Null}" />
+								<Setter
+									Property="Control.Template">
+									<Setter.Value>
+										<ControlTemplate
+											TargetType="{x:Type Button}">
+											<Border
+												Name="Border"
+												Background="{TemplateBinding Control.Background}">
+												<ContentPresenter
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center" />
+											</Border>
+											<ControlTemplate.Triggers>
+												<Trigger
+													Property="UIElement.IsMouseOver"
+													Value="True" />
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</FrameworkElement.Style>
+						<Control.Background>
+							<ImageBrush
+								ImageSource="/Assets/Images/Slxp logo.png"
+								Stretch="Fill" />
+						</Control.Background>
+						<UIElement.Effect>
+							<BlurEffect
+								RenderingBias="Quality"
+								Radius="2" />
+						</UIElement.Effect>
+					</Button>
+					<Button
+						Name="MinimizeButton"
+						Content=""
+						Margin="0,0,40,0"
+						FontSize="28"
+						FontFamily="{DynamicResource Codicon}"
+						HorizontalAlignment="Right"
+						Width="40"
+						VerticalAlignment="Top"
+						Height="33"
+						Click="MinimizeButton_Click">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type Button}">
+								<Setter
+									Property="Control.Background"
+									Value="{x:Null}" />
+								<Setter
+									Property="Control.Foreground"
+									Value="#FFFFFFFF" />
+								<Setter
+									Property="Control.BorderBrush"
+									Value="{x:Null}" />
+								<Setter
+									Property="Control.Template">
+									<Setter.Value>
+										<ControlTemplate
+											TargetType="{x:Type Button}">
+											<Border
+												Name="Border"
+												Background="{TemplateBinding Control.Background}">
+												<ContentPresenter
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center" />
+											</Border>
+											<ControlTemplate.Triggers>
+												<Trigger
+													Property="UIElement.IsMouseOver"
+													Value="True">
+													<Setter
+														TargetName="Border"
+														Property="Border.Background"
+														Value="#FF3C3C3C" />
+												</Trigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</FrameworkElement.Style>
+					</Button>
+					<Button
+						Name="CloseAppButton"
+						Content=""
+						VerticalAlignment="Top"
+						Height="33"
+						Width="40"
+						FontSize="24"
+						FontFamily="{DynamicResource Codicon}"
+						HorizontalAlignment="Right"
+						Click="CloseAppButton_Click">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type Button}">
+								<Setter
+									Property="Control.Background"
+									Value="{x:Null}" />
+								<Setter
+									Property="Control.Foreground"
+									Value="#FFFFFFFF" />
+								<Setter
+									Property="Control.BorderBrush"
+									Value="{x:Null}" />
+								<Setter
+									Property="Control.Template">
+									<Setter.Value>
+										<ControlTemplate
+											TargetType="{x:Type Button}">
+											<Border
+												Name="Border"
+												Background="{TemplateBinding Control.Background}"
+												CornerRadius="0,5,0,0">
+												<ContentPresenter
+													HorizontalAlignment="Center"
+													VerticalAlignment="Center" />
+											</Border>
+											<ControlTemplate.Triggers>
+												<Trigger
+													Property="UIElement.IsMouseOver"
+													Value="True">
+													<Setter
+														TargetName="Border"
+														Property="Border.Background"
+														Value="#de3232" />
+												</Trigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</FrameworkElement.Style>
+					</Button>
+				</Grid>
+			</Border>
+			<Grid
+				Name="Main"
+				VerticalAlignment="Center">
+				<UIElement.Effect>
+					<BlurEffect
+						Radius="0" />
+				</UIElement.Effect>
+				<Assets:Editor
+					x:Name="ScriptEditor"
+					Margin="5,0,0,5"
+					Height="313"
+					Width="578"
+					VerticalAlignment="Bottom"
+					HorizontalAlignment="Left" />
+				<TreeView
+					Name="ScriptList"
+					Margin="0,0,4,5"
+					Height="270"
+					Width="155"
+					VerticalAlignment="Bottom"
+					HorizontalAlignment="Right" />
+			</Grid>
+			<Grid
+				Name="panel"
+				Margin="0,34,0,34">
+				<Border
+					Name="SettingsPanelIn"
+					Background="{DynamicResource PrimaryWindowColor}"
+					CornerRadius="5"
+					RenderTransformOrigin="0.5,0.5"
+					Visibility="Collapsed"
+					Width="600"
+					Height="290"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Bottom"
+					Margin="0,0,0,6">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform
+								ScaleX="0.5"
+								ScaleY="0.5" />
+							<SkewTransform />
+							<RotateTransform />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+					<UIElement.Effect>
+						<DropShadowEffect
+							ShadowDepth="0"
+							RenderingBias="Quality" />
+					</UIElement.Effect>
+					<StackPanel
+						Margin="5">
+						<DockPanel
+							Margin="5">
+							<Button
+								Content=""
+								DockPanel.Dock="Right"
+								Width="24"
+								Height="24"
+								FontFamily="{DynamicResource Codicon}"
+								FontSize="16"
+								BorderBrush="{x:Null}"
+								Click="Panels_Click" />
+							<Label
+								Content="Settings"
+								FontSize="14"
+								Foreground="#FFFFFFFF" />
+						</DockPanel>
+						<CheckBox
+							Name="TopMost"
+							Content="Always On Top"
+							Checked="TopMost_Changed"
+							Unchecked="TopMost_Changed" />
+						<CheckBox
+							Name="AutoAttach"
+							Content="Auto Attach"
+							Checked="AutoAttach_Changed"
+							Unchecked="AutoAttach_Changed" />
+						<CheckBox
+							Name="UnlockFPS"
+							Content="Unlock FPS"
+							Checked="UnlockFPS_Changed"
+							Unchecked="UnlockFPS_Changed" />
+						<Button
+							Name="KillRobloxButton"
+							Content="Kill Roblox"
+							Margin="5"
+							Padding="5, 3"
+							Background="#FFE40000"
+							VerticalAlignment="Top"
+							HorizontalAlignment="Left"
+							Click="KillRobloxButton_Click" />
+					</StackPanel>
+				</Border>
+				<Border
+					Name="ApiSettingsPanelIn"
+					Background="{DynamicResource PrimaryWindowColor}"
+					CornerRadius="5"
+					RenderTransformOrigin="0.5,0.5"
+					Visibility="Collapsed"
+					Width="600"
+					Height="290"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Bottom"
+					Margin="0,0,0,6">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform
+								ScaleX="0.5"
+								ScaleY="0.5" />
+							<SkewTransform />
+							<RotateTransform />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+					<UIElement.Effect>
+						<DropShadowEffect
+							ShadowDepth="0"
+							RenderingBias="Quality" />
+					</UIElement.Effect>
+					<StackPanel
+						Margin="5">
+						<DockPanel
+							Margin="5">
+							<Button
+								Content=""
+								DockPanel.Dock="Right"
+								Width="24"
+								Height="24"
+								FontFamily="{DynamicResource Codicon}"
+								FontSize="16"
+								BorderBrush="{x:Null}"
+								Click="Panels_Click" />
+							<Label
+								Content="Exploit Settings"
+								FontSize="14"
+								Foreground="#FFFFFFFF" />
+						</DockPanel>
+						<Label
+							Content="Keyless exploits"
+							Foreground="#FFFFFFFF" />
+						<CheckBox
+							Name="FurkUltra"
+							Content="FurkUltra"
+							Checked="FurkUltra_Changed"
+							Unchecked="FurkUltra_Changed" />
+						<CheckBox
+							Name="WeAreDevs"
+							Content="WeAreDevs"
+							Checked="WeAreDevs_Changed"
+							Unchecked="WeAreDevs_Changed" />
+						<Label
+							Content="Key-based exploits"
+							Foreground="#FFFFFFFF" />
+						<CheckBox
+							Name="Electron"
+							Content="Electron"
+							Checked="Electron_Changed"
+							Unchecked="Electron_Changed" />
+						<CheckBox
+							Name="Oxygen"
+							Content="Oxygen"
+							Checked="Oxygen_Changed"
+							Unchecked="Oxygen_Changed" />
+						<CheckBox
+							Name="Comet"
+							Content="Comet"
+							Checked="Comet_Changed"
+							Unchecked="Comet_Changed" />
+						<CheckBox
+							Name="Fluxus"
+							Content="Fluxus"
+							Checked="Fluxus_Changed"
+							Unchecked="Fluxus_Changed" />
+						<CheckBox
+							Name="Krnl"
+							Content="Krnl"
+							Checked="Krnl_Changed"
+							Unchecked="Krnl_Changed" />
+					</StackPanel>
+				</Border>
+				<Border
+					Name="ScriptHubPanelIn"
+					Background="{DynamicResource PrimaryWindowColor}"
+					CornerRadius="5"
+					RenderTransformOrigin="0.5,0.5"
+					Visibility="Collapsed"
+					Padding="0"
+					Height="290"
+					Width="600"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Bottom"
+					Margin="0,0,0,6">
+					<UIElement.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform
+								ScaleX="0.5"
+								ScaleY="0.5" />
+							<SkewTransform />
+							<RotateTransform />
+							<TranslateTransform />
+						</TransformGroup>
+					</UIElement.RenderTransform>
+					<UIElement.Effect>
+						<DropShadowEffect
+							ShadowDepth="0"
+							RenderingBias="Quality" />
+					</UIElement.Effect>
+					<DockPanel
+						Margin="5">
+						<DockPanel
+							Dock="Top"
+							Margin="5">
+							<Button
+								Content=""
+								DockPanel.Dock="Right"
+								Width="24"
+								Height="24"
+								FontFamily="{DynamicResource Codicon}"
+								FontSize="16"
+								BorderBrush="{x:Null}"
+								Click="Panels_Click" />
+							<StackPanel
+								Orientation="Horizontal">
+								<TextBlock
+									Text="Script Hub"
+									FontSize="14"
+									Foreground="#FFFFFFFF"
+									VerticalAlignment="Center" />
+								<TextBlock
+									Text="Powered by ScriptBlox"
+									FontSize="10"
+									Opacity="0.5"
+									Foreground="#FFFFFFFF"
+									Margin="3,0,0,0"
+									VerticalAlignment="Center" />
+							</StackPanel>
+							<Border
+								Background="{DynamicResource PrimaryDarkerColor}"
+								CornerRadius="3"
+								Margin="5, 3">
+								<DockPanel
+									Margin="2">
+									<TextBlock
+										Text=""
+										FontFamily="{DynamicResource Codicon}"
+										Margin="2"
+										Opacity="0.5"
+										Foreground="#FFFFFFFF"
+										VerticalAlignment="Center"
+										HorizontalAlignment="Left"
+										FontSize="11" />
+									<TextBox
+										Name="ScriptHubSearchBar"
+										CaretBrush="#FFD3D3D3"
+										Margin="2"
+										BorderThickness="0"
+										Foreground="#FFFFFFFF"
+										Background="{x:Null}"
+										BorderBrush="{x:Null}"
+										KeyDown="ScriptHubSearchBar_KeyDown" />
+								</DockPanel>
+							</Border>
+						</DockPanel>
+						<ScrollViewer
+							Name="scriptHubScrollBar"
+							ScrollChanged="scriptHubScrollBar_ScrollChanged">
+							<WrapPanel
+								Name="ScriptHubPanel" />
+						</ScrollViewer>
+					</DockPanel>
+				</Border>
+			</Grid>
+			<Border
+				Background="#FF323232"
+				CornerRadius="0,0,5,5"
+				VerticalAlignment="Bottom">
+				<Grid
+					Name="Misc"
+					Height="35">
+					<Button
+						Name="SettingsButton"
+						Content=""
+						Margin="5,2,2,2"
+						FontSize="17"
+						FontFamily="{DynamicResource Codicon}"
+						ToolTip="Settings"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Width="25"
+						Height="25"
+						Click="SettingsButton_Click" />
+					<Button
+						Name="ApiSettingsButton"
+						Content=""
+						Margin="32,2,2,2"
+						FontSize="16"
+						FontFamily="Segoe MDL2 Assets icons"
+						ToolTip="Exploit Settings"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Width="25"
+						Height="25"
+						Click="ApiSettingsButton_Click" />
+					<Button
+						Name="ScriptHubButton"
+						Content=""
+						Margin="57,2,2,2"
+						FontSize="17"
+						FontFamily="{DynamicResource Codicon}"
+						ToolTip="Script Hub"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Width="25"
+						Height="25"
+						Click="ScriptHubButton_Click" />
+					<Border
+						Background="{DynamicResource PrimaryTextColor}"
+						Width="1"
+						Margin="84,2,2,2"
+						HorizontalAlignment="Left"
+						Height="20"
+						VerticalAlignment="Center" />
+					<Button
+						Name="AttachButton"
+						Content=""
+						Margin="87,2,2,2"
+						FontSize="17"
+						FontFamily="{DynamicResource Codicon}"
+						ToolTip="Attach"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Width="25"
+						Height="25"
+						Click="AttachButton_Click" />
+					<Button
+						Name="OpenButton"
+						Content=""
+						Margin="111,2,2,2"
+						FontSize="17"
+						FontFamily="{DynamicResource Codicon}"
+						ToolTip="Open Script"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Width="25"
+						Height="25"
+						Click="OpenButton_Click" />
+					<Button
+						Name="SaveButton"
+						Content=""
+						Margin="136,2,2,2"
+						FontSize="15"
+						FontFamily="Segoe MDL2 Assets icons"
+						ToolTip="Save Script"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Width="25"
+						Height="25"
+						Click="SaveButton_Click" />
+					<Button
+						Name="ExecuteButton"
+						Content=""
+						Margin="160,2,2,4"
+						FontSize="17"
+						FontFamily="{DynamicResource Codicon}"
+						ToolTip="Execute Script"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Width="25"
+						Height="25"
+						Click="ExecuteButton_Click" />
+					<Label
+						Name="ExploitStatus"
+						Content="Not attached"
+						Foreground="#FFFFFFFF"
+						FontFamily="{DynamicResource Roboto}"
+						FontSize="16"
+						HorizontalAlignment="Right"
+						VerticalAlignment="Center"
+						Margin="0,0,30,0" />
+					<Ellipse
+						Name="ExploitStatusColor"
+						Width="9"
+						Height="9"
+						Fill="#FFFF0000"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Right"
+						Margin="0,0,15,0" />
+				</Grid>
+			</Border>
+		</Grid>
+	</Border>
+</Window>
